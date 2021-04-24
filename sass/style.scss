@@ -63,6 +63,10 @@ h2 {
     background-color: $color-main;
 }
 
+.a {
+    cursor: pointer;
+}
+
 .btn {
     margin: 36px auto;
     padding: 6px;
@@ -138,6 +142,10 @@ header {
 .navigation .search-icon {
     font-size: inherit;
     cursor: pointer;
+}
+
+.navigation a:hover, .search-icon:hover {
+    color: $color-main;
 }
 
 /* Splash */
