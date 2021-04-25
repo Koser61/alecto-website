@@ -187,7 +187,7 @@ header {
 }
 
 /* About */
-.grid-wrapper {
+.grid-wrapper-4 {
   display: grid;
   margin-top: 48px;
 }
@@ -242,7 +242,7 @@ header {
 
 /* Responsive */
 @media only screen and (min-width: 769px) {
-  .grid-wrapper {
+  .grid-wrapper-4 {
     grid-template: 100% / 25% 25% 25% 25%;
   }
 }
@@ -257,7 +257,7 @@ header {
   .splash-title {
     font-size: 36px;
   }
-  .grid-wrapper {
+  .grid-wrapper-4 {
     grid-template: 50% 50% / 50% 50%;
   }
 }
@@ -295,7 +295,7 @@ header {
   .splash-subtitle {
     font-size: 16px;
   }
-  .grid-wrapper {
+  .grid-wrapper-4 {
     grid-template: 25% 25% 25% 25% / 100%;
   }
 }
