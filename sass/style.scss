@@ -1,9 +1,10 @@
 /* Variables */
 
-$font-text: 'Signika', sans-serif; 
-$font-header: 'Raleway', sans-serif; 
+$font-text: 'Raleway', sans-serif; 
+$font-text-2: 'Signika', sans-serif; 
 $color-main: #17daa3;
 $color-bg: #f9f9fa;
+$color-light-grey: #edeff1;
 $color-bright: #87949e;
 $color-dark: #576671;
 $transition: all 0.5s;
@@ -18,7 +19,7 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.2;
-    font-size: 16px;
+    font-size: 14px;
     font-family: $font-text;
     color: $color-bright;
 }
@@ -26,8 +27,37 @@ body {
 .section {
     width: 100%;
 }
+
+.section-title {
+    position: relative;
+    color: $color-dark;
+    text-align: center;
+}
+
+.section-title::after {
+    position: absolute;
+    content: '';
+    bottom: -16px;
+    left: 50%;
+    width: 30px;
+    height: 1px;
+    transform: translateX(-50%);
+    background-color: $color-main;
+}
+
+.section-subtitle {
+    font-family: $font-text;
+    font-size: 16px;
+    font-weight: normal;
+    color: $color-bright;
+    text-align: center;
+}
+
 .container {
+    max-width: 1024px;
     margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
 }
 
 .flex-container {
@@ -41,26 +71,9 @@ body {
 }
 
 h2 {
-    font-family: $font-header;
+    font-family: $font-text;
     font-weight: lighter;
     font-size: 48px;
-}
-
-.section-title {
-    position: relative;
-    color: $color-dark;
-    text-align: center;
-}
-
-.section-title::after {
-    position: absolute;
-    content: '';
-    bottom: -12px;
-    left: 50%;
-    width: 30px;
-    height: 1px;
-    transform: translateX(-50%);
-    background-color: $color-main;
 }
 
 .a {
@@ -68,9 +81,8 @@ h2 {
 }
 
 .btn {
-    margin: 36px auto;
     padding: 6px;
-    font-family: inherit;
+    font-family: $font-text-2;
     font-size: 14px;
     width: 150px;
     height: 36px;
@@ -134,13 +146,15 @@ header {
 .navigation a {
     text-decoration: none;
     font-family: $font-text;
+    font-weight: bold;
     letter-spacing: 1px;
     color: inherit;
     display: inline-block;
+    margin: 6px;
 }
 
 .navigation .search-icon {
-    font-size: inherit;
+    font-size: 18px;
     cursor: pointer;
 }
 
@@ -169,10 +183,12 @@ header {
 
 .splash-subtitle {
     font-size: 18px;
+    letter-spacing: 1px;
     margin: 8px 0;
 }
 
 .btn-1 {
+    margin: 36px auto;
     background-color: transparent;
     color: white;
     background-image: linear-gradient(90deg, white 50%, transparent 50%);
@@ -185,18 +201,80 @@ header {
 
 /* About */
 
-.about p:first-of-type {
+.grid-wrapper {
+    display: grid;
+    margin-top: 48px;
+}
+
+.about-card {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
     text-align: center;
+    padding: 0 12px 12px 12px;
+    a {
+        display: inline-block;
+        width: 90px;
+        height: 90px;
+        line-height: 90px;
+        border-radius: 50%;
+        background-color: $color-light-grey;
+        text-align: center;
+        margin: 24px 0;
+    }
+    i {
+        font-size: 30px;
+        color: $color-bright;
+        vertical-align: sub;
+    }
+    a:hover {
+        background-color: $color-main;
+        i {
+            color: white;
+        }
+    }
+    .card-title {
+        margin-top: 8px;
+        margin-bottom: 24px;
+        font-size: 18px;
+        color: black;
+    }
+}
+
+.about .btn-2 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 36px 0;
 }
 
 /* Responsive */
 
-@media only screen and (max-width: 576px) {
-    .container {
-        max-width: 100%;
+@media only screen and (min-width: 769px) {
+    .grid-wrapper {
+        grid-template: 100% / 25% 25% 25% 25%;
     }
-    .header, .header .container, .flex-box {
-        height: 120px;
+}
+@media only screen and (max-width: 768px) {
+    .navigation {
+        width: 60%;
+    }
+    .flex-container {
+        padding-top: 60px;
+    }
+    .splash-title {
+        font-size: 36px;
+    }
+    .grid-wrapper {
+        grid-template: 50% 50% / 50% 50%;
+    }
+}
+@media only screen and (max-width: 576px) {
+    .header { 
+        .container, .flex-box {
+            height: 120px;
+        }
     }
     .navigation {
         padding: 0;
@@ -217,7 +295,7 @@ header {
         justify-content: center;
     }
     .flex-container {
-        padding-top: 100px;
+        padding-top: 120px;
     }
     .splash-title {
         font-size: 36px;
@@ -225,33 +303,20 @@ header {
     .splash-subtitle {
         font-size: 16px;
     }
+    .grid-wrapper {
+        grid-template: 25% 25% 25% 25% / 100%;
+    }
 }
-@media only screen and (min-width: 768px) {
-    .container {
-        max-width: 540px;
-    }
-    .navigation {
-        width: 60%;
-    }
+@media only screen and (max-width: 402px) {
     .flex-container {
-        padding-top: 60px;
+        padding-top: 160px;
     }
+}
+@media only screen and (max-width: 275px) {
     .splash-title {
-        font-size: 36px;
+        font-size: 32px;
     }
-}
-@media only screen and (min-width: 992px) {
-    .container {
-        max-width: 720px;
-    }
-}
-@media only screen and (min-width: 1200px) {
-    .container {
-        max-width: 960px;
-    }
-}
-@media only screen and (min-width: 1400px) {
-    .container {
-        max-width: 1140px;
+    .splash-subtitle {
+        font-size: 14px;
     }
 }
