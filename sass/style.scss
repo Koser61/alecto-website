@@ -5,6 +5,7 @@ $font-text-2: 'Signika', sans-serif;
 $color-main: #17daa3;
 $color-bg: #f9f9fa;
 $color-light-grey: #edeff1;
+$color-licence: #c9cfd3;
 $color-bright: #87949e;
 $color-dark: #576671;
 $transition: all 0.5s;
@@ -373,6 +374,9 @@ header {
 
 /* Team */
 
+.team {
+    padding-bottom: 0;
+}
 .team-grid {
     display: grid;
     grid-template: 50% 50% / 20% 20% 20% 20% 20%;
@@ -412,6 +416,46 @@ header {
 
 .pricing {
     background-color: $color-bg;
+}
+
+.licence-card {
+    margin: 24px 12px;
+    height: 350px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    .licence-price {
+        padding: 0 24px;
+        flex: 37.5%;
+        .price {
+            margin: 0;
+            color: $color-main;
+        }
+        p {
+            margin: 0;
+            color: $color-licence;
+        }
+    }
+    .licence-description {
+        padding: 0 24px;
+        flex: 50%;
+    }
+    .purchase-btn {
+        flex: 12.5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $color-main;
+        color: white;
+        font-family: $font-text-2;
+        letter-spacing: 4px;
+        border: none;
+        border-radius: 2px;
+    }
+    .purchase-btn:hover {
+        transform: scale(1.1);
+        transition: $transition;
+    }
 }
 
 /* Responsive */
