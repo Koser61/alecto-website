@@ -24,8 +24,10 @@ body {
     color: $color-bright;
 }
 
-.section {
+section {
     width: 100%;
+    padding-top: 36px;
+    padding-bottom: 48px;
 }
 
 .section-title {
@@ -51,6 +53,7 @@ body {
     font-weight: normal;
     color: $color-bright;
     text-align: center;
+    margin-bottom: 48px;
 }
 
 .container {
@@ -67,6 +70,20 @@ body {
     justify-content: center;
     align-content: center;
     text-align: center;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.grid-wrapper-4 {
+    display: grid;
+}
+
+article {
+    padding: 36px 0;
 }
 
 .article-wrapper {
@@ -89,6 +106,7 @@ body {
 }
 
 .article-title {
+    margin: 0;
     color: $color-dark;
 }
 
@@ -105,16 +123,11 @@ body {
     }
 }
 
-.flex-center {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-}
-
 h2 {
     font-family: $font-text;
     font-weight: lighter;
     font-size: 48px;
+    margin-top: 0;
 }
 
 .a {
@@ -191,7 +204,7 @@ header {
     letter-spacing: 1px;
     color: inherit;
     display: inline-block;
-    margin: 6px;
+    margin: 0 6px;
 }
 
 .navigation .search-icon {
@@ -242,11 +255,6 @@ header {
 
 /* About */
 
-.grid-wrapper-4 {
-    display: grid;
-    margin-top: 48px;
-}
-
 .about-card {
     display: flex;
     flex-direction: column;
@@ -287,18 +295,91 @@ header {
     margin: 48px 0;
 }
 
+/* Opinions */
+
+.opinions {
+    padding: 0 12px;
+    height: 350px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(/images/opinion-background-photo.png);
+    background-position: center center;
+    background-size: cover;
+    .profile-pic {
+        height: 50px;
+        width: 50px;
+        margin: 6px auto;
+    }
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+    .opinion {
+        font-weight: normal;
+        font-size: 18px;
+        margin: 8px 0;
+        color: white;
+    }
+    span {
+        color: $color-main;
+    }
+    .opinion-details {
+        margin: 6px 0;
+        color: $color-dark;
+    }
+}
+
+/* Services */
+
+.services {
+    background-color: $color-bg;
+}
+
+.grid-wrapper-2 {
+    display: grid;
+}
+
+.services-card {
+    display: flex;
+    .services-icon {
+        flex: 20%;
+        display: flex;
+        justify-content: center;
+        margin-top: 12px;
+        a {
+            display: block;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            border-radius: 50%;
+            background-color: white;
+            text-align: center;
+        }
+        i {
+            font-size: 24px;
+            color: $color-main;
+            vertical-align: middle;
+        }
+    }
+    .services-article {
+        flex: 80%;
+        align-self: start;
+    }
+}
+
 /* Responsive */
 
 @media only screen and (min-width: 769px) {
     .grid-wrapper-4 {
         grid-template: 100% / 25% 25% 25% 25%;
     }
+    .grid-wrapper-2 {
+        grid-template: 50% 50% / 50% 50%;
+    }
 }
 @media only screen and (max-width: 768px) {
     .navigation {
-        width: 60%;
+        width: 70%;
     }
-    .flex-container {
+    .splash .flex-container {
         padding-top: 60px;
     }
     .splash-title {
@@ -306,6 +387,9 @@ header {
     }
     .grid-wrapper-4 {
         grid-template: 50% 50% / 50% 50%;
+    }
+    .grid-wrapper-2 {
+        grid-template: 25% 25% 25% 25% / 100%;
     }
     .article-wrapper {
         flex-direction: column;
@@ -341,19 +425,18 @@ header {
         justify-content: space-evenly;
     }
     .logo {
-        margin: 30px auto;
         flex: 1;
-        height: 60px;
+        margin: 14px auto;
         width: fit-content;
     }
     .flex-box {
         flex-direction: column;
         justify-content: center;
     }
-    .flex-container {
+    .splash .flex-container {
         padding-top: 120px;
     }
-    .splash-title {
+    .splash-title, .article-title {
         font-size: 36px;
     }
     .splash-subtitle {
@@ -362,10 +445,17 @@ header {
     .grid-wrapper-4 {
         grid-template: 25% 25% 25% 25% / 100%;
     }
+    .services-card {
+        flex-direction: column;
+        text-align: center;
+    }
 }
-@media only screen and (max-width: 402px) {
-    .flex-container {
-        padding-top: 160px;
+@media only screen and (max-width: 375px) {
+    h2 {
+        font-size: 36px;
+    }
+    .article-title {
+        font-size: 28px;
     }
 }
 @media only screen and (max-width: 275px) {
