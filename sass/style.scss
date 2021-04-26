@@ -358,10 +358,53 @@ header {
             color: $color-main;
             vertical-align: middle;
         }
+        a:hover {
+            background-color: $color-main;
+            i {
+                color: white;
+            }
+        }
     }
     .services-article {
         flex: 80%;
         align-self: start;
+    }
+}
+
+/* Team */
+
+.team-grid {
+    display: grid;
+    grid-template: 50% 50% / 20% 20% 20% 20% 20%;
+}
+
+.team-box {
+    display: flex;
+    background-color: $color-main;
+    position: relative;
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+    .team-name {
+        display: none;
+    }
+}
+.team-box:hover {
+    img {
+        opacity: 0.4;
+    }
+    .team-name {
+        display: block;
+        position: absolute;
+        margin: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: $font-text;
+        font-size: 18px;
+        text-align: center;
+        color: white;
     }
 }
 
@@ -390,6 +433,9 @@ header {
     }
     .grid-wrapper-2 {
         grid-template: 25% 25% 25% 25% / 100%;
+    }
+    .team-grid {
+        grid-template: 20% 20% 20% 20% 20% / 50% 50%;
     }
     .article-wrapper {
         flex-direction: column;
