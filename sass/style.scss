@@ -8,7 +8,7 @@ $color-light-grey: #edeff1;
 $color-licence: #c9cfd3;
 $color-bright: #87949e;
 $color-dark: #576671;
-$transition: all 0.5s ease;
+$transition: all 0.5s ease-in-out;
 
 /* Global */
 
@@ -80,6 +80,10 @@ section {
 }
 
 .grid-wrapper-4 {
+    display: grid;
+}
+
+.grid-wrapper-nav {
     display: grid;
 }
 
@@ -174,13 +178,49 @@ h2 {
 
 /* Header */
 
-
+header {
+    width: 100%;
+    height: 80px;
+    position: absolute;
+    top: 0%;
+    .container, .grid-wrapper-nav {
+        height: inherit;
+    }
+    .logo-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        img {margin-left: 24px;}
+    }
+    .navigation {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        a {
+            padding: 0 6px;
+            flex-basis: 74px;
+            flex-shrink: 0;
+            text-align: center;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+        }
+        a:hover {
+            color: $color-main;
+        }
+    }
+    a {
+        text-decoration: none;
+        font-weight: bold;
+        letter-spacing: 1px;
+        color: white;
+    }
+}
 
 /* Splash */
 
 .splash {
     height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(https://i.ibb.co/1JTrCLQ/pexels-tobias-bj-rkli-2113565.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url(https://i.ibb.co/1JTrCLQ/pexels-tobias-bj-rkli-2113565.jpg);
     background-position: center center;
     background-size: cover;
     background-attachment: fixed;
@@ -438,16 +478,40 @@ h2 {
 /* Responsive */
 
 @media only screen and (min-width: 769px) {
+    .search-mobile {
+        display: none;
+    }
     .grid-wrapper-4 {
         grid-template: 100% / 25% 25% 25% 25%;
     }
     .grid-wrapper-2 {
         grid-template: 50% 50% / 50% 50%;
     }
+    .grid-wrapper-nav {
+        grid-template: 100% / 40% 60%;
+    }
 }
 @media only screen and (max-width: 768px) {
-    .splash .flex-container {
-        padding-top: 60px;
+    header {
+        height: 120px;
+        .search-icon {
+            display: none;
+        }
+        .navigation {
+            -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+            overflow-x: scroll;
+            overflow-y: hidden;
+        }
+    }
+    .grid-wrapper-nav {
+        grid-template: 50% 50% / 100%;
+    }
+    .splash {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)), url(https://i.ibb.co/1JTrCLQ/pexels-tobias-bj-rkli-2113565.jpg);
+        .flex-container {
+            padding-top: 60px;
+        }
     }
     .splash-title {
         font-size: 36px;
@@ -481,9 +545,6 @@ h2 {
     }
 }
 @media only screen and (max-width: 576px) {
-    .splash .flex-container {
-        padding-top: 120px;
-    }
     .splash-title, .article-title {
         font-size: 36px;
     }
@@ -496,6 +557,16 @@ h2 {
     .services-card {
         flex-direction: column;
         text-align: center;
+    }
+}
+@media only screen and (max-width: 515px) {
+    .splash .flex-container {
+        padding-top: 120px;
+    }
+}
+@media only screen and (max-width: 425px) {
+    .navigation {
+        justify-content: initial !important;
     }
 }
 @media only screen and (max-width: 375px) {
