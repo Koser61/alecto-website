@@ -8,7 +8,7 @@ $color-light-grey: #edeff1;
 $color-licence: #c9cfd3;
 $color-bright: #87949e;
 $color-dark: #576671;
-$transition: all 0.5s;
+$transition: all 0.5s ease;
 
 /* Global */
 
@@ -85,6 +85,9 @@ section {
 
 article {
     padding: 36px 0;
+    .btn-2 {
+        margin-top: 24px;
+    }
 }
 
 .article-wrapper {
@@ -171,52 +174,7 @@ h2 {
 
 /* Header */
 
-header {
-    width: 100%;
-    height: 80px;
-    position: absolute;
-    top: 0%;
-}
 
-.flex-box {
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-}
-
-.logo {
-    margin: 26px 0;
-    padding-left: 26px;
-}
-
-.navigation {
-    padding-right: 26px;
-    display: flex;
-    width: 50%;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    font-size: 14px;
-}
-
-.navigation a {
-    text-decoration: none;
-    font-family: $font-text;
-    font-weight: bold;
-    letter-spacing: 1px;
-    color: inherit;
-    display: inline-block;
-    margin: 0 6px;
-}
-
-.navigation .search-icon {
-    font-size: 18px;
-    cursor: pointer;
-}
-
-.navigation a:hover, .search-icon:hover {
-    color: $color-main;
-}
 
 /* Splash */
 
@@ -442,6 +400,7 @@ header {
     .licence-description {
         padding: 0 24px;
         flex: 50%;
+        border-top: 1px solid $color-bg;
     }
     .purchase-btn {
         flex: 12.5%;
@@ -487,9 +446,6 @@ header {
     }
 }
 @media only screen and (max-width: 768px) {
-    .navigation {
-        width: 70%;
-    }
     .splash .flex-container {
         padding-top: 60px;
     }
@@ -525,28 +481,6 @@ header {
     }
 }
 @media only screen and (max-width: 576px) {
-    .header { 
-        .container, .flex-box {
-            height: 120px;
-        }
-    }
-    .navigation {
-        padding: 0;
-        flex: 1;
-        flex-wrap: wrap;
-        width: 100%;
-        height: 60px;
-        justify-content: space-evenly;
-    }
-    .logo {
-        flex: 1;
-        margin: 14px auto;
-        width: fit-content;
-    }
-    .flex-box {
-        flex-direction: column;
-        justify-content: center;
-    }
     .splash .flex-container {
         padding-top: 120px;
     }
