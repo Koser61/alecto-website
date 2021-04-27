@@ -477,12 +477,50 @@ header {
 
 /* Footer */
 
-
+footer {
+    width: 100%;
+    height: 80px;
+    letter-spacing: 1px;
+    .container, .grid-wrapper-nav {
+        height: inherit;
+    }
+    .container {
+        position: relative;
+    }
+    .footer-copyright {
+        display: flex;
+        align-items: center;
+        color: $color-dark;
+        img {padding: 0 12px;}
+    }
+    .footer-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        a {
+            text-decoration: none;
+            font-size: 16px;
+            color: $color-bright;
+            padding: 0 6px;
+            flex-basis: 50px;
+            flex-shrink: 0;
+            text-align: center;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+        }
+        a:hover {color: $color-dark;}
+    }
+    .watermark {
+        position: absolute;
+        width: 100%;
+        z-index: -1;
+    }
+}
 
 /* Responsive */
 
 @media only screen and (min-width: 769px) {
-    .flex-container {
+    .splash .flex-container {
         padding-top: 60px;
     }
     .search-mobile {
@@ -499,17 +537,17 @@ header {
     }
 }
 @media only screen and (max-width: 768px) {
-    header {
+    header, footer {
         height: 120px;
-        .search-icon {
-            display: none;
-        }
-        .navigation {
-            -webkit-box-sizing: content-box;
-            box-sizing: content-box;
-            overflow-x: scroll;
-            overflow-y: hidden;
-        }
+    }
+    .search-icon {
+        display: none;
+    }
+    .navigation, .footer-nav {
+        -webkit-box-sizing: content-box;
+        box-sizing: content-box;
+        overflow-x: scroll;
+        overflow-y: hidden;
     }
     .grid-wrapper-nav {
         grid-template: 50% 50% / 100%;
@@ -550,6 +588,11 @@ header {
             }
         }
     }
+    .footer-copyright {
+        justify-content: center;
+        order: 2
+    }
+    .footer-nav {order: 1;}
 }
 @media only screen and (max-width: 576px) {
     .splash-title, .article-title {
@@ -572,7 +615,7 @@ header {
     }
 }
 @media only screen and (max-width: 425px) {
-    .navigation {
+    .navigation, .footer-nav {
         justify-content: initial !important;
     }
 }
